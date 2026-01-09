@@ -10,6 +10,7 @@ import { Server, Socket } from 'socket.io';
     origin: '*', // or ['http://localhost:3000']
     methods: ['GET', 'POST'],
     credentials: true,
+    transports: ['websocket', 'polling'],
   },
 })
 export class ContactsGateway {
@@ -19,5 +20,14 @@ export class ContactsGateway {
   @SubscribeMessage('message')
   handleMessage(client: Socket, payload: any): string {
     return 'Hello world!';
+  }
+
+  emitContactCreated(data: any) {
+    console.log('SERVER INSTANCE:');
+    if (!this.server) {
+      console.error('Socket server not ready');
+      return;
+    }
+    this.server.emit('contact-created', data);
   }
 }

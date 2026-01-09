@@ -40,6 +40,13 @@ export class ContactsService {
         phone: contact.phone,
         bio: contact.bio,
       });
+
+    this.contactsGateway.emitContactCreated({
+        name: contact.name,
+        email: contact.email,
+        phone: contact.phone,
+        bio: contact.bio,
+      });
       return {
         success: true,
         data: contact,
