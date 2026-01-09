@@ -1,0 +1,48 @@
+.contacts {
+  background: #fff;
+  max-width: 1100px;
+  width: calc(100dvw - 20px);
+  font-size: 90%;
+  margin-top: 20px;
+  border: 2px solid #ededed;
+  border-radius: 10px;
+  margin-bottom: 100px;
+  max-height: 90dvh;
+  overflow: auto;
+}
+.header {
+  padding: 20px;
+  border-bottom: 2px solid #ededed;
+  /* font-size: 24px; */
+  /* font-weight: 600; */
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: inherit;
+}
+.contactList {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin: 10px;
+}
+.listItem {
+  min-width: 200px;
+}
+.userIcon {
+  background: #dfe7fc;
+  padding: 10px;
+  box-sizing: content-box;
+  border-radius: 100px;
+  color: #0088ff;
+  margin-right: 10px;
+}
+
+
+.listTemp {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 10px;
+  font-weight: 400;
+  opacity: 0.8;
+}
