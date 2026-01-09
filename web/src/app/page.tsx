@@ -1,4 +1,5 @@
-'use server'
+export const dynamic = 'force-dynamic';
+
 import ContactForm from './components/ContactForm';
 import Contacts from './components/Contacts';
 import { formAction } from './api/actions/form-action';

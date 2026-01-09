@@ -54,7 +54,9 @@ function Contact(contact: contact) {
 export default function Contacts({ contacts }: Prop) {
   const [contactList, setContactList] = useState(contacts.data.toReversed());
   useEffect(() => {
-    const socket = io("https://contact-management-93dy.onrender.com");
+    const socket = io("http://localhost:5000", {
+      transports: ["websocket", "polling"],
+    });
     socket.on("connect", () => {
       console.log("Connected:", socket.id);
     });
@@ -64,6 +66,9 @@ export default function Contacts({ contacts }: Prop) {
       setContactList((prev) => [data, ...prev]);
     });
     return () => {
+      socket.off("connect");
+      socket.off("contact-created");
+      socket.off("connect_error");
       socket.disconnect();
     };
   }, []);
@@ -75,7 +80,9 @@ export default function Contacts({ contacts }: Prop) {
   return (
     <div className={styles.contacts}>
       <div className={styles.header}>
-        <strong style={{fontSize: 24}}>Contacts ({contactList.length})</strong>
+        <strong style={{ fontSize: 24 }}>
+          Contacts ({contactList.length})
+        </strong>
         <div className={styles.listTemp}>
           <div>NAME</div>
           <div>EMAIL</div>
