@@ -35,7 +35,7 @@ export async function formAction(state: FormState, formdata?: FormData): Promise
     const err = error as AxiosError<{message?: string}>;
     return {
       success: false,
-      error: err.response?.data.message
+      message: err.response?.data.message
     };
   }
 }
