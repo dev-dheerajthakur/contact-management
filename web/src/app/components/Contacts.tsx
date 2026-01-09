@@ -54,7 +54,7 @@ function Contact(contact: contact) {
 export default function Contacts({ contacts }: Prop) {
   const [contactList, setContactList] = useState(contacts.data.toReversed());
   useEffect(() => {
-    const socket = io("http://localhost:5000", {
+    const socket = io("https://contact-management-93dy.onrender.com", {
       transports: ["websocket", "polling"],
     });
     socket.on("connect", () => {
